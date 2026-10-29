@@ -1,0 +1,16 @@
+{
+  "name": "ai-study-planner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-Based Study Planner and Productivity Coach (BCSE301P project)",
+  "scripts": {
+    "setup": "npm install --prefix server && npm install --prefix client",
+    "dev": "node scripts/dev.js",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "test": "npm test --prefix server"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

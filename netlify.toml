@@ -1,0 +1,25 @@
+# Netlify deployment: React site + Express API as a Netlify Function + MongoDB Atlas.
+# See DEPLOY_NETLIFY.md for the step-by-step guide.
+
+[build]
+  command = "npm run setup && npm run build"
+  publish = "client/dist"
+  functions = "server/netlify"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  node_bundler = "esbuild"
+  external_node_modules = ["express", "mongoose"]
+
+# Reminder worker: creates session / deadline / attendance reminders every 15 minutes.
+[functions."reminders"]
+  schedule = "*/15 * * * *"
+
+# All API calls go to the Express function (same domain, so no CORS setup is needed).
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true

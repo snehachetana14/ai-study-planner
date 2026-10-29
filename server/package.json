@@ -1,0 +1,20 @@
+{
+  "name": "ai-study-planner-server",
+  "version": "1.0.0",
+  "description": "Backend for the AI-Based Study Planner and Productivity Coach (Express + MongoDB + Gemini/OpenAI)",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test --test-reporter=spec \"test/*.test.js\""
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5",
+    "serverless-http": "^3.2.0"
+  }
+}
